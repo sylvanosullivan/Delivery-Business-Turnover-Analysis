@@ -20,4 +20,4 @@ Turnover was predicted almost entirely with order history - demographic data asi
 
 Because the data was procured from a private source, this project cannot be fully presented publicly. __The data cannot be shared.__ Therefor, the presentation Jupyter notebook can only include my original code and some vaguely descriptive graphs.
 
-The rest ofmy original code can be found in src.
+The rest of my original code can be found in src.
