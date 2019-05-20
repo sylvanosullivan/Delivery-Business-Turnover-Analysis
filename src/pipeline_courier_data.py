@@ -64,7 +64,7 @@ def process_df(dataframe_url):
     
     if dataframe_url == 'f':
         return 'no hiring data imported, aborting this step'
-    elif dataframe_url =='None':
+    elif dataframe_url =='demo':
         print('using demo default')
 
         cd1 = pd.read_excel('CourierData.xls')

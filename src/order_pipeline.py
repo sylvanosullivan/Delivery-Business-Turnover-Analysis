@@ -456,22 +456,22 @@ def process_df(dataframe_url):
 
     print('===================importing dataframe...please wait===================')
     print('===================this program is extremely un-optimized...be patient===================')
-
-    if dataframe_url == 'None':
+    import os
+    if dataframe_url == 'demo_large':
         print('IMPORTING PICKLE...REMOVE AFTER DEMO')
         with open('orders_unprocessed','rb') as f:
             r_m = pickle.load(f)
             f.close()
         
     
-#     if dataframe_url == 'None':
-#         print('using demo default')
-#         r_m = pd.read_csv('ALL_2019_HIRES_UNPROCESSED_csv.csv',
-#                       header=None, 
-#                       skiprows=[0],
-#                       names=cols,
-#                       sep=',',
-#                       dtype='object')
+    if dataframe_url == 'demo_small':
+        print('using demo default')
+        r_m = pd.read_csv('/home/ubuntu/ba_project/ALL_2019_HIRES_UNPROCESSED_csv.csv',
+                      header=None, 
+                      skiprows=[0],
+                      names=cols,
+                      sep=',',
+                      dtype='object')
         
         
     elif dataframe_url == 'f':
@@ -579,7 +579,7 @@ def process_df(dataframe_url):
     rm62['IRT'] = rm6.IRT.apply(make_quad_cat, cat1='D',cat2= 'P', cat3='N')
     rm62['RoundTrip'] = rm6.RoundTrip.apply(make_triple_cat, cat1='N',cat2= 'Y')
     #post-script-1: adding a categorical for RTR y/n
-    orders['RTR_job'] = np.where(orders['ClientID'].isin([26300]),1,0)
+    rm62['RTR_job'] = np.where(rm62['ClientID'].isin([26300]),1,0)
     #26300 seems to be the internal DB ID for RTR
 
     print('encoding vehicle IDs')
